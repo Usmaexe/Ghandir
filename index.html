@@ -2,9 +2,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="icon" href="IMG/SAYARATY_Icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="./img/icon.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Ghandir</title>
 </head>
 <body>
-  
+  <span >
+    <h1 class="Title">To do App</h1>
+    
+  </span>
+  <div>
+    <form class="theBox" action="" method="post">
+      <div class="list" id="list1">
+        <div class="card listHead">
+          <input type="text" name="title" placeholder="Title">
+          <input type="button" value="Add" name="addButton" onclick="addCard()">
+        </div>
+        <div class="card-container">
+          <div class="card">This should be done today</div>
+          <input type="button" value="Delete" name="deleteButton" onclick="delCard()">
+          <input type="button" value="Edit" name="editButton" onclick="editCard()">
+        </div>
+        <div class="card-container">
+          <div class="card">This is your task for today</div>
+          <input type="button" value="Delete" name="deleteButton" onclick="delCard()">
+          <input type="button" value="Edit" name="editButton" onclick="editCard()">
+        </div>
+        <div class="card-container">
+          <div class="card">don't forget to do this task</div>
+          <input type="button" value="Delete" name="deleteButton" onclick="delCard()">
+          <input type="button" value="Edit" name="editButton" onclick="editCard()">
+        </div>
+      </div>
+      <div class="list"></div>
+      <div class="list"></div>
+    </form>
+  </div>
 </body>
+<script>
+  var list1 = document.getElementById("list1");
+  var card = document.getElementsByClassName("card");
+  function addCard(){
+    var newCard = '<div class="card-container"><div class="card">This should be done today</div><input type="button" value="Delete" name="deleteButton" onclick="delCard()"><input type="button" value="Edit" name="editButton" onclick="editCard()"></div>';
+    if(card.length<=11){
+      list1.innerHTML = list1.innerHTML + newCard;
+    }
+  }
+  function delCard(){
+    var lastCard = list1.lastElementChild;
+    list1.removeChild(lastCard);
+  }
+</script>
 </html>
