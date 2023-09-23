@@ -1,75 +1,77 @@
-body {
-  display: flex;
-  flex-direction: column;
-  margin: 3%;
-  flex-wrap: wrap;
-}
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    flex-wrap: wrap;
+  }
 
-.Title {
-  display: flex;
-  justify-content: center;
-  font: 600 3em "Rubik";
-}
+  .Title {
+    display: flex;
+    justify-content: center;
+    font: 600 3em "Rubik";
+  }
 
-.theBox {
-  padding: 4%;
-  border: 1px solid black;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
+  .theBox {
+    padding: 4%;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-.list {
-  border: 0.5px solid black;
-  border-radius: 4px;
-  display:flex;
-  flex-direction:column;
-  align-content: center;
-  width:370px;
-  height:480px;
-  padding:14px;
-}
-.cardContainer{
-  display:flex;
-  justify-content: flex-start;
-  flex-direction: row;
-}
-.card{ 
-  background-color: white;
-  display:flex; 
-  font : 400 1em "Rubik";
-  align-content: center;
-  justify-content: center;
-  border:1px solid black; 
-  padding:4px;
-  border-radius: 3px;
-  margin-bottom: 10px;
-}
+  .list {
+    border: 0.5px solid black;
+    border-radius: 4px;
+    display:flex;
+    flex-direction:column;
+    align-content: center;
+    width:370px;
+    height:480px;
+    padding:14px;
+  }
+  .card-container{
+    margin-top: 10px;
+  }
+  .card{ 
+    background-color: white;
+    display:flex; 
+    font : 400 1em "Rubik";
+    align-content: center;
+    justify-content: center;
+    border:1px solid black; 
+    padding:4px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
 
-.listHead{
-  border: 0px solid black!important;
-  justify-content: space-between;
+  .listHead{
+    border: 0px solid black!important;
+    justify-content: space-between;
 
-}
-.listHead input{
-  width : 140px;
-  font : 300 1em "Poppins";
-  border : 0px solid black;
-}
-.listHead input[type="text"]{
-  border-bottom: 1px solid black;
-}
-.listHead input[type="text"]:focus-visible{
-  outline:none!important;
-  /* border: none; */
-  /* box-shadow: none; */
-}
+  }
+  .listHead input{
+    width : 140px;
+    font : 300 1em "Poppins";
+    border : 0px solid black;
+  }
+  .listHead input[type="text"],:active{
+    border-bottom: 1px solid black;
+  }
+  .listHead input[type="text"]:focus-visible{
+    outline:none!important;
+    /* border: none; */
+    /* box-shadow: none; */
+  }
+  .input-error {
+    border-bottom: 1px solid red!important;
+    color: red;
+  }
 
-input[type="button"]{
-  width:60px;
-  font : 300 1em "Poppins";
-  border : 0px solid black;
-}
+  input[type="button"]{
+    width:60px;
+    font : 300 1em "Poppins";
+    border : 0px solid black;
+  }

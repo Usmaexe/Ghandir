@@ -14,30 +14,16 @@
 <body>
   <span >
     <h1 class="Title">To do App</h1>
-    
   </span>
   <div>
     <form class="theBox" action="" method="post">
       <div class="list" id="list1">
         <div class="card listHead">
-          <input type="text" name="title" placeholder="Title">
-          <input type="button" value="Add" name="addButton" onclick="addCard()">
+          <input type="text" id="taskInput"  onInput="emptyOrNot(this)" placeholder="Title">
+          <input type="button" value="Add" name="addButton" onClick="addCard()">
         </div>
-        <div class="card-container">
-          <div class="card">This should be done today</div>
-          <input type="button" value="Delete" name="deleteButton" onclick="delCard()">
-          <input type="button" value="Edit" name="editButton" onclick="editCard()">
-        </div>
-        <div class="card-container">
-          <div class="card">This is your task for today</div>
-          <input type="button" value="Delete" name="deleteButton" onclick="delCard()">
-          <input type="button" value="Edit" name="editButton" onclick="editCard()">
-        </div>
-        <div class="card-container">
-          <div class="card">don't forget to do this task</div>
-          <input type="button" value="Delete" name="deleteButton" onclick="delCard()">
-          <input type="button" value="Edit" name="editButton" onclick="editCard()">
-        </div>
+
+        
       </div>
       <div class="list"></div>
       <div class="list"></div>
@@ -48,14 +34,40 @@
   var list1 = document.getElementById("list1");
   var card = document.getElementsByClassName("card");
   function addCard(){
-    var newCard = '<div class="card-container"><div class="card">This should be done today</div><input type="button" value="Delete" name="deleteButton" onclick="delCard()"><input type="button" value="Edit" name="editButton" onclick="editCard()"></div>';
-    if(card.length<=11){
-      list1.innerHTML = list1.innerHTML + newCard;
+    var task = document.getElementById("taskInput");
+    if(task.value!=""){
+      console.log(task.value)
+      var newCard = `<div class="card-container">
+          <div class="card">`+task.value+`</div>
+          <input type="button" value="Delete" name="deleteButton" onclick="delCard(this)">
+          <input type="button" value="Edit" name="editButton" onclick="editCard()">
+        </div>`;
+      if(card.length<=11){
+        list1.innerHTML = list1.innerHTML + newCard;
+      }
+    }
+    else{
+      task.classList.add("input-error");
     }
   }
-  function delCard(){
-    var lastCard = list1.lastElementChild;
-    list1.removeChild(lastCard);
+  function delCard(buttonElement) {
+    // Find the parent 'card' div of the button
+    const card = buttonElement.closest(".card-container");
+
+    // If a card was found, remove it
+    if (card) {
+        card.remove();
+    }
   }
+  function emptyOrNot(element){
+    console.log("h",element.value);
+    if(element.value==""){
+      element.classList.add("input-error");
+    }
+    else{
+      element.classList.remove("input-error");
+    }
+  }
+
 </script>
 </html>
