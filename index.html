@@ -16,37 +16,41 @@
     <h1 class="Title">To do App</h1>
   </span>
   <div>
-    <form class="theBox" action="" method="post">
+    <div class="theBox">
       <div class="list" id="list1">
         <div class="card listHead">
           <input type="text" id="taskInput"  onInput="emptyOrNot(this)" placeholder="Title">
           <input type="button" value="Add" name="addButton" onClick="addCard()">
         </div>
-
         
       </div>
       <div class="list"></div>
       <div class="list"></div>
-    </form>
+    </div>
   </div>
 </body>
 <script>
   var list1 = document.getElementById("list1");
   var card = document.getElementsByClassName("card");
+  var counter = 0//counting how much element has been created
+  list1.style.height = card.style.height;
   function addCard(){
     var task = document.getElementById("taskInput");
     if(task.value!=""){
-      console.log(task.value)
+      counter++;
       var newCard = `<div class="card-container">
-          <div class="card">`+task.value+`</div>
+          <input class="card" type="text" id="taskInput`+counter+`" value="`+task.value+`" readOnly>
           <input type="button" value="Delete" name="deleteButton" onclick="delCard(this)">
-          <input type="button" value="Edit" name="editButton" onclick="editCard()">
+          <input type="button" value="Edit" name="editButton" onclick="editCard(this)">
+
         </div>`;
       if(card.length<=11){
         list1.innerHTML = list1.innerHTML + newCard;
       }
     }
     else{
+      //A class that have style is added to the element to signifie 
+      //that there is an error
       task.classList.add("input-error");
     }
   }
@@ -68,6 +72,19 @@
       element.classList.remove("input-error");
     }
   }
+  function editCard(buttonElement) {
+    // Find the parent 'card' div of the button
+    const cardContainer = buttonElement.closest(".card-container");
+
+    // Find the input element within the card container
+    const taskInput = cardContainer.querySelector(".card");
+
+    // Make the input element editable
+    taskInput.readOnly = false;
+    
+    ///ADD THE CONFIRMATION AND THE UNDO OPTION 
+  }
+
 
 </script>
 </html>
